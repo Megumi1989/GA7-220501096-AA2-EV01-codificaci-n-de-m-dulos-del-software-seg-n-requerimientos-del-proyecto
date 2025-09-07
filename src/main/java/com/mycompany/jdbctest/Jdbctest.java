@@ -30,14 +30,14 @@ public class Jdbctest {
             }
             
             //3. Insertar un registro en la BD
-            statement.execute("INSERT INTO usuarios (nombres, apellidos, email) VALUES ('Jairo','Matallana','Jairr@hotmail.com')");
+            statement.execute("INSERT INTO usuarios (nombres, apellidos, email) VALUES ('Felipe','Mania','sada@hotmail.com')");
             System.out.println("");
             rs = statement.executeQuery("SELECT * FROM usuarios");
             while(rs.next()){
                 System.out.println(rs.getString("nombres"));
             }
             //4. Actualización de datos registros en la BD.      
-            statement.execute("UPDATE `usuarios` SET `nombres` = 'Angie', `apellidos` = 'Mendoza', `email` = 'cambiocorreo1@corre.com ' WHERE (`id` = '2');");
+            statement.execute("UPDATE `usuarios` SET `nombres` = 'Federico', `apellidos` = 'Caicedo', `email` = 'cambiocorreo1@corre.com ' WHERE (`id` = '1');");
             System.out.println("");
             rs = statement.executeQuery("SELECT * FROM usuarios");
             while(rs.next()){
@@ -49,7 +49,7 @@ public class Jdbctest {
             }
             
             //5. Borrado o eliminación de datos
-            statement.execute("DELETE FROM `usuarios` WHERE (`id` = '3');");            
+            statement.execute("DELETE FROM `usuarios` WHERE (`id` = '1');");            
             System.out.println("");
             rs = statement.executeQuery("SELECT * FROM usuarios");
             while(rs.next()){
