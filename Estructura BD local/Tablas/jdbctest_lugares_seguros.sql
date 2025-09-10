@@ -32,8 +32,7 @@ CREATE TABLE `lugares_seguros` (
   KEY `fk_miLugarSeguro_imagenesFondo1_idx` (`imagenesFondo_idImgFondo`),
   KEY `fk_miLugarSeguro_Usuario1_idx` (`Usuario_idUsuario`),
   CONSTRAINT `fk_miLugarSeguro_imagenesFondo1` FOREIGN KEY (`imagenesFondo_idImgFondo`) REFERENCES `imagenes_fondo` (`idImgFondo`),
-  CONSTRAINT `fk_miLugarSeguro_tecnicasDeRelajacion1` FOREIGN KEY (`tecnicasDeRelajacion_idTecnicaRelajacion`) REFERENCES `tecnicas_relajacion` (`idTecnicaRelajacion`),
-  CONSTRAINT `fk_miLugarSeguro_Usuario1` FOREIGN KEY (`Usuario_idUsuario`) REFERENCES `usuarios` (`idUsuario`)
+  CONSTRAINT `fk_miLugarSeguro_tecnicasDeRelajacion1` FOREIGN KEY (`tecnicasDeRelajacion_idTecnicaRelajacion`) REFERENCES `tecnicas_relajacion` (`idTecnicaRelajacion`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -55,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-09-09 21:10:58
+-- Dump completed on 2025-09-09 22:31:03

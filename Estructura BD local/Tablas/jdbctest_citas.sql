@@ -38,8 +38,7 @@ CREATE TABLE `citas` (
   KEY `fk_cita_Usuario1_idx` (`Usuario_idUsuario`),
   KEY `fk_cita_Pago1_idx` (`Pago_idPago`),
   CONSTRAINT `fk_cita_Pago1` FOREIGN KEY (`Pago_idPago`) REFERENCES `pagos` (`idPago`),
-  CONSTRAINT `fk_cita_Servicios psicologicos` FOREIGN KEY (`Servicios_psicologicos_idServicio`) REFERENCES `servicios_psicologicos` (`idServicio`),
-  CONSTRAINT `fk_cita_Usuario1` FOREIGN KEY (`Usuario_idUsuario`) REFERENCES `usuarios` (`idUsuario`)
+  CONSTRAINT `fk_cita_Servicios psicologicos` FOREIGN KEY (`Servicios_psicologicos_idServicio`) REFERENCES `servicios_psicologicos` (`idServicio`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -61,4 +60,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-09-09 21:10:57
+-- Dump completed on 2025-09-09 22:31:03
