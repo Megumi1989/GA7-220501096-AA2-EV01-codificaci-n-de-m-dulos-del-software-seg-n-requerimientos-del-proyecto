@@ -76,7 +76,8 @@ public class Jdbctest {
             ps.setString(2, apellido);
             ps.setString(3, email);
             ps.executeUpdate();
-            System.out.println("Nuevo usuario registrado exitosamente.");
+            System.out.println("Nuevo usuario registrado exitosamente.\n");
+            consultarUsuarios(conexion); // Reutilizamos el metodo para consultar los usuarios que quedan en la tbla usuarios y los muestra en consola
         }
     }
 
@@ -101,7 +102,8 @@ public class Jdbctest {
             ps.setInt(4, id);
             int filas = ps.executeUpdate();
             if (filas > 0) {
-                System.out.println("Datos del usuario actualizados de manera exitosa.");
+                System.out.println("Datos del usuario actualizados de manera exitosa.\n");
+                 consultarUsuarios(conexion); // Reutilizamos el metodo para consultar los usuarios que quedan en la tbla usuarios y los muestra en consola
             } else {
                 System.out.println("No se encontró un usuario con el ID especificado.");
             }
@@ -119,7 +121,7 @@ public class Jdbctest {
             ps.setInt(1, id);
             int filas = ps.executeUpdate();
             if (filas > 0) {
-                System.out.println("El usuario especificado ha diso eliminado.");
+                System.out.println("El usuario especificado ha diso eliminado.\n");
                 consultarUsuarios(conexion); // Reutilizamos el metodo para consultar los usuarios que quedan en la tbla usuarios y los muestra en consola
             } else {
                 System.out.println("No se encontró un usuario con el ID especificado.");
