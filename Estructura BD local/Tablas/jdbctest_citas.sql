@@ -16,29 +16,40 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `usuarios`
+-- Table structure for table `citas`
 --
 
-DROP TABLE IF EXISTS `usuarios`;
+DROP TABLE IF EXISTS `citas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `usuarios` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `nombres` varchar(100) NOT NULL,
-  `apellidos` varchar(45) DEFAULT NULL,
-  `email` varchar(45) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `citas` (
+  `idCita` int NOT NULL AUTO_INCREMENT,
+  `estadoCita` enum('Pendiente','Cancelada','Completada') NOT NULL,
+  `motivoCancelacion` varchar(250) DEFAULT NULL,
+  `Servicios_psicologicos_idServicio` int NOT NULL,
+  `Usuario_idUsuario` int NOT NULL,
+  `Pago_idPago` int NOT NULL,
+  `Disponibilidades_idDisponibilidad` int NOT NULL,
+  `Fecha` date DEFAULT NULL,
+  `horaInicio` time NOT NULL,
+  `horaFin` time NOT NULL,
+  PRIMARY KEY (`idCita`,`Pago_idPago`,`Disponibilidades_idDisponibilidad`),
+  KEY `fk_cita_Servicios psicologicos1_idx` (`Servicios_psicologicos_idServicio`),
+  KEY `fk_cita_Usuario1_idx` (`Usuario_idUsuario`),
+  KEY `fk_cita_Pago1_idx` (`Pago_idPago`),
+  CONSTRAINT `fk_cita_Pago1` FOREIGN KEY (`Pago_idPago`) REFERENCES `pagos` (`idPago`),
+  CONSTRAINT `fk_cita_Servicios psicologicos` FOREIGN KEY (`Servicios_psicologicos_idServicio`) REFERENCES `servicios_psicologicos` (`idServicio`),
+  CONSTRAINT `fk_cita_Usuario1` FOREIGN KEY (`Usuario_idUsuario`) REFERENCES `usuarios` (`idUsuario`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `usuarios`
+-- Dumping data for table `citas`
 --
 
-LOCK TABLES `usuarios` WRITE;
-/*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (2,'Angie','Mendoza','cambiocorreo1@corre.com '),(7,'ernesto','Suarez','Vitencio@outlook.com'),(8,'Fabio','Mendoza','Salcedo@salcedo.com'),(12,'Fernando','Amaya','juju@hotmail.com'),(13,'Alfredo','Barraza','22juju@hotmail.com'),(14,'Catalina','Hernandez','jaja@hotmail.com'),(18,'Daniela','Amante','riso@hotmail.com'),(19,'Jesus','Salvador','jesu@hotmail.com'),(20,'Maria','Vargas','mari@hotmail.com'),(26,'Jairo','Matallana','Jairr@hotmail.com'),(27,'Felipe','Mania','sada@hotmail.com'),(28,'Felipe','Mania','sada@hotmail.com');
-/*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
+LOCK TABLES `citas` WRITE;
+/*!40000 ALTER TABLE `citas` DISABLE KEYS */;
+/*!40000 ALTER TABLE `citas` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -50,4 +61,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-09-07 18:48:28
+-- Dump completed on 2025-09-09 21:10:57
